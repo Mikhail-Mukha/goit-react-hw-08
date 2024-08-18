@@ -2,8 +2,11 @@ import ContactForm from "./components/ContactForm/ContactForm";
 import SearchBox from "./components/SearchBox/SearchBox";
 import ContactList from "./components/ContactList/ContactList";
 import { useDispatch } from "react-redux";
-import { fetchContacts } from "./redux/contactsOps";
+import { fetchContacts } from "./redux/contacts/operations";
 import { useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout/Layout";
+import Home from "./pages/Home/Home";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -17,6 +20,9 @@ const App = () => {
       <ContactForm />
       <SearchBox />
       <ContactList />
+      <Routes path="/" element={<Layout />}>
+        <Route path="index" element={<Home />}></Route>
+      </Routes>
     </div>
   );
 };
