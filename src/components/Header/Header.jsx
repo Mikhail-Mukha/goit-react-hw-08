@@ -7,7 +7,7 @@ const Header = () => {
     <>
       <Navigation />
       <AuthNavigation />
-      <Menu />
+      {/* <Menu /> */}
     </>
   );
 };

@@ -5,19 +5,25 @@ import Contacts from "./pages/Contacts/Contacts";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import NotFound from "./pages/NotFound/NotFound";
-import Tasks from "./pages/Tasks/Tasks";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchContacts } from "./redux/contacts/operations";
 
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
   return (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/tasks" element={<Tasks />} />
+          <Route path="/contacts" element={<Contacts />} />
         </Route>
-        <Route path="/contacts" element={<Contacts />} />
-        <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
