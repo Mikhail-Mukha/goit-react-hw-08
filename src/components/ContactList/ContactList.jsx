@@ -8,9 +8,13 @@ const ContactList = () => {
 
   return (
     <ul className={s.contactList}>
-      {filteredContacts.map((contact) => (
-        <Contact key={contact.id} contact={contact} />
-      ))}
+      {filteredContacts.length > 0 ? (
+        filteredContacts.map((contact) => (
+          <Contact key={contact.id} contact={contact} />
+        ))
+      ) : (
+        <h2>No data received</h2>
+      )}
     </ul>
   );
 };
