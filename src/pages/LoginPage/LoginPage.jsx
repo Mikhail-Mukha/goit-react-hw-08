@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, NavLink } from "react-router-dom";
 import { loginThunk } from "../../redux/auth/operations";
 import { selectLoggedIn } from "../../redux/auth/selectors";
+import s from "./LoginPage.module.css";
 
 const LoginForm = () => {
   const loggedIn = useSelector(selectLoggedIn);
@@ -19,17 +20,24 @@ const LoginForm = () => {
     return <Navigate to="/" />;
   }
   return (
-    <div>
+    <div className={s.loginDiv}>
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        <Form>
-          <Field name="email" placeholder="enter your email"></Field>
+        <Form className={s.loginForm}>
           <Field
+            className={s.loginField}
+            name="email"
+            placeholder="enter your email"
+          ></Field>
+          <Field
+            className={s.loginField}
             name="password"
             type="password"
             placeholder="enter your password"
           ></Field>
-          <button type="submit">Login</button>
-          <p>
+          <button className={s.loginButton} type="submit">
+            Login
+          </button>
+          <p className={s.loginParagraph}>
             You don`t have account?<NavLink to="/register">Sing up</NavLink>
           </p>
         </Form>

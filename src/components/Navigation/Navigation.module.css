@@ -1,31 +1,11 @@
-.div {
-  background-color: #333;
-  color: white;
-  padding: 10px 0;
-  text-align: center;
+.nav {
   display: flex;
-  justify-content: flex-end;
-  padding-right: 20px;
-}
-
-p {
-  text-align: center;
-  font-size: 2rem;
-  margin: 20px 0;
-  color: black;
-}
-
-nav {
-  margin: 10px 0;
-}
-
-.ul {
-  display: flex;
+  align-items: center;
   justify-content: center;
   gap: 20px;
 }
 
-.navlink {
+.navLink {
   color: white;
   font-size: 1.2rem;
   padding: 5px 10px;
@@ -33,7 +13,7 @@ nav {
   transition: background-color 0.3s;
 }
 
-.navlink.active,
-.navlink:hover {
+.navLink.active,
+.navLink:hover {
   background-color: #575757;
 }

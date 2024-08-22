@@ -1,10 +1,10 @@
-.loginDiv {
+.regDiv {
   display: grid;
   place-items: center;
   height: 100vh;
 }
 
-.loginForm {
+.regForm {
   font-family: "Montserrat";
   height: auto;
   width: 450px;
@@ -16,7 +16,7 @@
   box-sizing: border-box;
 }
 
-.loginField {
+.regField {
   display: block;
   width: calc(100% - 40px);
   margin: 10px auto;
@@ -28,12 +28,12 @@
   transition: border-color 0.3s;
 }
 
-.loginField:focus {
+.regField:focus {
   border-color: #004d40;
   outline: none;
 }
 
-.loginButton {
+.regButton {
   margin: auto;
   display: flex;
   padding: 12px 25px;
@@ -45,10 +45,10 @@
   cursor: pointer;
 }
 
-.loginButton:hover {
+.regButton:hover {
   background-color: #00796b;
 }
 
-.loginParagraph {
+.regParagraph {
   font-size: 16px;
 }

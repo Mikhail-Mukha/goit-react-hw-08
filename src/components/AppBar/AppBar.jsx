@@ -9,14 +9,12 @@ const AppBar = () => {
   const user = useSelector(selectUser);
   const loggedIn = useSelector(selectLoggedIn);
   return (
-    <div className={s.div}>
-      <h2>{user.email}</h2>
-      <h3>{user.name}</h3>
-      <ul>
-        <Navigation />
-        {!loggedIn && <AuthNavigation />}
-        {loggedIn && <UserMenu />}
-      </ul>
+    <div className={s.divInfo}>
+      <h2 className={s.email}>{user.email}</h2>
+      <h3 className={s.name}>{user.name}</h3>
+      <Navigation />
+      {!loggedIn && <AuthNavigation />}
+      {loggedIn && <UserMenu />}
     </div>
   );
 };

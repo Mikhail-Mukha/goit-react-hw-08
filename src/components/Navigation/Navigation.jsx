@@ -3,18 +3,14 @@ import s from "./Navigation.module.css";
 
 const Navigation = () => {
   return (
-    <>
-      <li className={s.div}>
-        <NavLink className={s.navlink} to="/">
-          Home
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className={s.navlink} to="/contacts">
-          Contacts
-        </NavLink>
-      </li>
-    </>
+    <nav className={s.nav}>
+      <NavLink className={s.NavLink} to="/">
+        Home
+      </NavLink>
+      <NavLink className={s.NavLink} to="/contacts">
+        Contacts
+      </NavLink>
+    </nav>
   );
 };
 
