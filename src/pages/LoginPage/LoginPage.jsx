@@ -4,7 +4,7 @@ import { Navigate, NavLink } from "react-router-dom";
 import { loginThunk } from "../../redux/auth/operations";
 import { selectLoggedIn } from "../../redux/auth/selectors";
 
-const Login = () => {
+const LoginForm = () => {
   const loggedIn = useSelector(selectLoggedIn);
   const initialValues = {
     email: "",
@@ -38,4 +38,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginForm;

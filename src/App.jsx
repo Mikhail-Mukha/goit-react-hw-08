@@ -1,32 +1,34 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
-import Home from "./pages/Home/Home";
-import Contacts from "./pages/Contacts/Contacts";
-import Register from "./pages/Register/Register";
-import Login from "./pages/Login/Login";
+import HomePage from "./pages/HomePage/HomePage";
 import NotFound from "./pages/NotFound/NotFound";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getMeThunk } from "./redux/auth/operations";
 import { PrivateRoure } from "./Routes/PrivateRoute";
-import { PublicRoure } from "./Routes/PublicPoute";
+import { RestrictedRoute } from "./Routes/RestrictedRoute";
+import { selectIsRefreshing } from "./redux/auth/selectors";
+import LoginForm from "./pages/LoginPage/LoginPage";
+import RegisterForm from "./pages/RegistrationPage/RegistrationPage";
+import ContactsPage from "./pages/ContactsPage/ContactsPage";
 
 const App = () => {
   const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
   useEffect(() => {
     dispatch(getMeThunk());
   }, [dispatch]);
 
-  return (
+  return isRefreshing ? null : (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+          <Route index element={<HomePage />} />
           <Route
             path="/contacts"
             element={
               <PrivateRoure>
-                <Contacts />
+                <ContactsPage />
               </PrivateRoure>
             }
           />
@@ -34,17 +36,17 @@ const App = () => {
         <Route
           path="/login"
           element={
-            <PublicRoure>
-              <Login />
-            </PublicRoure>
+            <RestrictedRoute>
+              <LoginForm />
+            </RestrictedRoute>
           }
         />
         <Route
           path="/register"
           element={
-            <PublicRoure>
-              <Register />
-            </PublicRoure>
+            <RestrictedRoute>
+              <RegisterForm />
+            </RestrictedRoute>
           }
         />
         <Route path="*" element={<NotFound />} />

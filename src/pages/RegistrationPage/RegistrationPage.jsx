@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { registerThunk } from "../../redux/auth/operations";
 
-const Register = () => {
+const RegisterForm = () => {
   const dispatch = useDispatch();
   const initialValues = {
     name: "",
@@ -35,4 +35,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterForm;

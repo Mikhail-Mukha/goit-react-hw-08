@@ -5,7 +5,7 @@ import SearchBox from "../../components/SearchBox/SearchBox";
 import { useDispatch } from "react-redux";
 import { fetchContacts } from "../../redux/contacts/operations";
 
-const Contacts = () => {
+const ContactsPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchContacts());
@@ -21,4 +21,4 @@ const Contacts = () => {
   );
 };
 
-export default Contacts;
+export default ContactsPage;
