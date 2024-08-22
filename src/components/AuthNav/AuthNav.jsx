@@ -3,7 +3,7 @@ import s from "./AuthNav.module.css";
 
 const AuthNavigation = () => {
   return (
-    <nav>
+    <nav className={s.nav}>
       <NavLink className={s.navlink} to="/register">
         Registration
       </NavLink>

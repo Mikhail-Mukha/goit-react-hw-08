@@ -1,4 +1,9 @@
 .nav {
   display: flex;
   flex-direction: row;
+  gap: 30px;
+  color: white;
+  margin-right: 30px;
+  justify-content: center;
+  align-items: center;
 }

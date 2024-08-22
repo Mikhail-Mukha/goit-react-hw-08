@@ -2,9 +2,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
+  padding-right: 30px;
 }
 
 .button {
-  background-color: antiquewhite;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  background: #0b63f6;
+  box-shadow: 0 5px 0 #003cc5;
+  width: 90px;
+  height: 40px;
+}
+
+.button:hover {
+  background: #003cc5;
+  box-shadow: none;
+  position: relative;
+  top: 5px;
 }
