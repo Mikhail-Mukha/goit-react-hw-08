@@ -7,12 +7,14 @@ import Login from "./pages/Login/Login";
 import NotFound from "./pages/NotFound/NotFound";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { fetchContacts } from "./redux/contacts/operations";
+import { getMeThunk } from "./redux/auth/operations";
+import { PrivateRoure } from "./Routes/PrivateRoute";
+import { PublicRoure } from "./Routes/PublicPoute";
 
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(getMeThunk());
   }, [dispatch]);
 
   return (
@@ -20,10 +22,31 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/contacts" element={<Contacts />} />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoure>
+                <Contacts />
+              </PrivateRoure>
+            }
+          />
         </Route>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route
+          path="/login"
+          element={
+            <PublicRoure>
+              <Login />
+            </PublicRoure>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <PublicRoure>
+              <Register />
+            </PublicRoure>
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

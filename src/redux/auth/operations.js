@@ -6,6 +6,7 @@ export const registerThunk = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const { data } = await goitApi.post("users/signup", credentials);
+      // console.log(goitApi.defaults.headers.common.Authorization);
       setToken(data.token);
       return data;
     } catch (error) {
@@ -19,7 +20,7 @@ export const loginThunk = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const { data } = await goitApi.post("users/login", credentials);
-      console.log(goitApi.defaults.headers.common.Authorization);
+      // console.log(goitApi.defaults.headers.common.Authorization);
       setToken(data.token);
       return data;
     } catch (error) {
@@ -37,7 +38,13 @@ export const logoutThunk = createAsyncThunk("logout", async (_, thunkAPI) => {
 });
 
 export const getMeThunk = createAsyncThunk("getMe", async (_, thunkAPI) => {
+  const savedToken = thunkAPI.getState().auth.token;
+  if (savedToken === null) {
+    return thunkAPI.rejectWithValue("Token is not exist");
+  }
+
   try {
+    setToken(savedToken);
     const { data } = await goitApi.get("/users/current");
     return data;
   } catch (error) {

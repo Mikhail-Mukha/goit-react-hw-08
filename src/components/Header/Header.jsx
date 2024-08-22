@@ -49,10 +49,6 @@ const Header = () => {
           </li>
         )}
       </ul>
-
-      {/* <Navigation /> */}
-      {/* <AuthNavigation /> */}
-      {/* <Menu /> */}
     </div>
   );
 };
